@@ -18,4 +18,4 @@ Install Docker on Windows 11:
 - https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task
 
 
-<img src="result.png" alt="result" width="750"/>
+<img src="result.png" alt="result" width="50%"/>
