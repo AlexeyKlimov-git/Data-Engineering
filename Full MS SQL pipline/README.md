@@ -1,1 +1,1 @@
-![Alt Text](ScreenRecording.gif)
+<img src="ScreenRecording.gif" alt="result" width="100%"/>
