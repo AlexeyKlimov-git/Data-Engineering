@@ -1,0 +1,138 @@
+My solutions on prictice with https://sql-ex.ru/  
+
+1)
+SELECT 
+    model, speed, hd
+FROM PC
+WHERE price < 500
+
+2)
+SELECT 
+    DISTINCT     
+    maker
+FROM Product
+WHERE type = 'Printer'
+
+3)
+SELECT 
+    model,
+    ram,
+    screen
+FROM Laptop
+WHERE price > 1000
+
+4)
+SELECT 
+    *
+FROM Printer 
+WHERE color = 'y'
+
+5)
+SELECT 
+    model,
+    speed,
+    hd
+FROM PC 
+WHERE (cd = '12x' OR cd = '24x') AND price < 600
+
+6)
+SELECT 
+    DISTINCT Product.maker,
+    Laptop.speed
+FROM
+    Laptop
+INNER JOIN
+    Product 
+ON
+    Laptop.model = Product.model
+WHERE
+    Laptop.hd >= 10
+	
+7)
+SELECT 
+	res.model,
+	price
+FROM 
+	(SELECT model, price
+	FROM PC
+	UNION
+	SELECT model, price
+	FROM Laptop
+	UNION
+	SELECT model, price
+	FROM Printer) AS res
+WHERE res.model 
+IN (SELECT model FROM Product WHERE maker = 'B')
+
+8)
+SELECT
+   maker
+FROM
+   Product
+WHERE type = 'PC' 
+EXCEPT
+SELECT
+   maker
+FROM
+   Product
+WHERE type = 'Laptop'
+
+
+9) Find all makers which produce PC with CPU speed at least 450 MHz.
+SELECT
+    DISTINCT maker AS Maker
+FROM
+    Product
+RIGHT JOIN
+    PC 
+ON Product.model = PC.model
+WHERE 
+    PC.speed >= 450
+	
+	
+10) Find all printer models with the highest price.
+SELECT 
+    model,
+    price
+FROM 
+    Printer
+WHERE
+    price = (SELECT MAX(price) FROM Printer)
+
+11)
+SELECT 
+    AVG(speed) AS average_speed
+FROM PC
+
+12)
+SELECT 
+    AVG(speed) AS laptop_average_speed
+FROM Laptop
+WHERE price > 1000
+
+13)
+SELECT
+    AVG(speed) AS average_pc_speed
+FROM 
+    PC
+JOIN 
+(SELECT * FROM Product WHERE maker = 'A') AS Makers
+ON PC.model = Makers.model
+
+14)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
